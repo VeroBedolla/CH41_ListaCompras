@@ -2,18 +2,17 @@
 let btnAgregar = document.getElementById ("btnAgregar");
 let btnClear = document.getElementById ("btnClear");
 
-
-let txtNombre = document.getElementById ("Name");
+let txtNombre = document.getElementById("Name");
 let txtNumber = document.getElementById("Number");
 
 let alertValidaciones = document.getElementById("alertValidaciones");
-let alertValidacionesTexto = document.getElementById("alertValidaciones");
+let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 
 let contadorProductos = document.getElementById("contadorProductos");
 let productosTotal = document.getElementById("productosTotal");
 let precioTotal = document.getElementById("precioTotal");
 
-productosTotal
+
 
 let tablaListaCompras = document.getElementById ("tablaListaCompras")
 let cuerpoTabla = tablaListaCompras.getElementsByTagName ("tbody").item(0);
@@ -49,13 +48,13 @@ function getPrecio(){
 
 btnAgregar.addEventListener("click", function(event){
     event.preventDefault();
-    alertValidacionesTexto, this.innerHTML="";
+    alertValidacionesTexto.innerHTML="";
     alertValidaciones.style.display="none";
     txtNombre.style.border="";
     txtNumber.style.border="";
     isValid = true;
     if (txtNombre.value.length<3){
-        alertValidacionesTexto.innerHTML="El <strong>Nombre</strong> no es correcto";
+        alertValidacionesTexto.innerHTML="El <strong>Nombre</strong> no es correcto<br>";
         alertValidaciones.style.display="block";
         txtNombre.style.border="solid red medium";
         isValid =false
@@ -83,7 +82,7 @@ btnAgregar.addEventListener("click", function(event){
                                 "nombre": "${txtNombre.value}",
                                 "cantidad": "${txtNumber.value}",
                                 "precio": ${precio}
-                }`
+                }`;
                 datos.push(JSON.parse(elemento));
                     localStorage.setItem("datos",JSON.stringify(datos));  
                         //este concatena los datos para gusrdarlos en el localStorage
